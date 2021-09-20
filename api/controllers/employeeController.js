@@ -5,7 +5,7 @@ const { authCollectionObj } = require("../../models/user");
 //get EmployeeList
 exports.get_employeeList = async function (req, res) {
   const employee = await authCollectionObj.find();
-  res.status(200).json({ data: employee });
+  res.status(200).send(employee);
 };
 //fetch specific employee
 exports.get_employee = async function (req, res) {
