@@ -9,6 +9,7 @@ exports.user_signup = async function (req, res) {
   const lastName = req.body.lastName;
   const areaOfWork = req.body.areaOfWork;
   const phone = req.body.phone;
+  const role = req.body.role;
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
@@ -26,6 +27,7 @@ exports.user_signup = async function (req, res) {
             lastName,
             phone,
             email,
+            role,
             areaOfWork,
             password: hash,
           });
