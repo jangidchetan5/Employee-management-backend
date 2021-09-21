@@ -1,9 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 //creating signup schema
 const authSchema = new mongoose.Schema({
-  firstName:String,
-  lastName:String,
-  phone:String,
+  firstName: String,
+  lastName: String,
+  phone: String,
+  areaOfWork: String,
+  role: {
+    type: String,
+    default: "user",
+  },
   email: {
     type: String,
     require: true,
@@ -16,11 +21,8 @@ const authSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
- 
 });
 //creating collection
-const authCollectionObj = new mongoose.model('usersCollection',authSchema)
- 
- 
- 
-module.exports = {authCollectionObj}
+const authCollectionObj = new mongoose.model("usersCollection", authSchema);
+
+module.exports = { authCollectionObj };

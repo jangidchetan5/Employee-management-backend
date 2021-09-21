@@ -10,6 +10,10 @@ router.get("/employeeList", auth, async (req, res) => {
 router.get("/employee/:id", auth, async (req, res) => {
   employeeController.get_employee(req, res);
 });
+//update employee  route
+router.patch("/updateEmployee/:id", auth, async (req, res) => {
+  employeeController.update_employee(req, res);
+});
 
 //delete employee  route
 router.delete("/deleteEmployee/:id", auth, async (req, res) => {

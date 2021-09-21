@@ -1,5 +1,5 @@
 const express = require("express");
-// connecting to atlas
+// connecting to database
 require("./db/connection.js");
 var cors = require("cors");
 const app = express();
