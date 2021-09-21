@@ -1,4 +1,3 @@
-const express = require("express");
 const jwt = require("jsonwebtoken");
 //creating schema
 const { authCollectionObj } = require("../../models/user");
