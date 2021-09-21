@@ -12,10 +12,20 @@ exports.get_employee = async function (req, res) {
   try {
     const _id = req.params.id;
 
-    const product = await authCollectionObj.find({ _id });
-    res.status(200).json({ data: product });
+    const employee = await authCollectionObj.find({ _id });
+    res.status(200).json({ data: employee });
   } catch (e) {
     res.status(500).json(e);
+  }
+};
+//update employee details
+exports.update_employee = async function (req, res) {
+  try {
+    const _id = req.params.id;
+    const update = await authCollectionObj.findByIdAndUpdate(_id, req.body);
+    res.status(200).send({ message: "successful updated" });
+  } catch (e) {
+    res.status(500).send(e);
   }
 };
 //delete employee

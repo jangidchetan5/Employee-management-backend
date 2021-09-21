@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 exports.user_signup = async function (req, res) {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
+  const areaOfWork = req.body.areaOfWork;
   const phone = req.body.phone;
   const email = req.body.email;
   const password = req.body.password;
@@ -25,6 +26,7 @@ exports.user_signup = async function (req, res) {
             lastName,
             phone,
             email,
+            areaOfWork,
             password: hash,
           });
           const result = await userDetail.save();
