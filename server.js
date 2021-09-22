@@ -11,9 +11,11 @@ app.use(express.json());
 const auth_route = require("./api/routes/user");
 const employee_route = require("./api/routes/employee");
 const holiday_route = require("./api/routes/holidays");
+const leavesadmin_route = require("./api/routes/leavesadmin");
 app.use(employee_route);
 app.use(auth_route);
 app.use(holiday_route);
+app.use(leavesadmin_route);
 
 app.listen(port, () => {
   console.log("server is running...");
