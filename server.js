@@ -14,12 +14,14 @@ const holiday_route = require("./api/routes/holidays");
 const leavesadmin_route = require("./api/routes/leavesadmin");
 const department_route = require("./api/routes/department");
 const designations_route = require("./api/routes/designations");
+const timesheet_route = require("./api/routes/timesheet");
 app.use(employee_route);
 app.use(auth_route);
 app.use(holiday_route);
 app.use(leavesadmin_route);
 app.use(department_route);
 app.use(designations_route);
+app.use(timesheet_route);
 
 app.listen(port, () => {
   console.log("server is running...");
