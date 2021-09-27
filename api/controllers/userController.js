@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 //creating schema
 const { authCollectionObj } = require("../../models/user");
 const bcrypt = require("bcrypt");
+ 
 //user signup
 exports.user_signup = async function (req, res) {
   const firstName = req.body.firstName;
@@ -12,13 +13,15 @@ exports.user_signup = async function (req, res) {
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
+  const profile_image = `http://localhost:8000/product_image/${req.file.filename}`
+  console.log(firstName,password)
   if (password !== confirmPassword) {
     res.status(401).json({ message: "password not matched" });
   } else {
     bcrypt.hash(password, 10, async function (err, hash) {
       if (err) {
         console.log(err);
-        return res.status(500).json({ message: "something went wrong" });
+        return res.status(500).json({ message: "something  went wrong" });
       } else {
         try {
           const userDetail = new authCollectionObj({
@@ -27,6 +30,7 @@ exports.user_signup = async function (req, res) {
             phone,
             email,
             role,
+            profile_image,
             areaOfWork,
             password: hash,
           });

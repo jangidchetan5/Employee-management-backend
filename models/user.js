@@ -5,6 +5,7 @@ const authSchema = new mongoose.Schema({
   lastName: String,
   phone: String,
   areaOfWork: String,
+  profile_image:String,
   role: {
     type: String,
     default: "user",

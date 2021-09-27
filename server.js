@@ -3,6 +3,7 @@ const express = require("express");
 require("./db/connection.js");
 var cors = require("cors");
 const app = express();
+ 
 app.use(cors());
 const port = process.env.PORT || 8000;
 //it is use to recognize incoming req object as for post and put,this is middlewere
