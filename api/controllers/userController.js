@@ -13,8 +13,8 @@ exports.user_signup = async function (req, res) {
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
-  const profile_image = `http://localhost:8000/product_image/${req.file.filename}`
-  console.log(firstName,password)
+  const profile_image = `http://localhost:8000/profile_image/${req.file.filename}`
+  
   if (password !== confirmPassword) {
     res.status(401).json({ message: "password not matched" });
   } else {

@@ -8,6 +8,7 @@ app.use(cors());
 const port = process.env.PORT || 8000;
 //it is use to recognize incoming req object as for post and put,this is middlewere
 app.use(express.json());
+app.use("/profile_image",express.static("public/uploads/"))
 //registering  route
 const auth_route = require("./api/routes/user");
 const employee_route = require("./api/routes/employee");
