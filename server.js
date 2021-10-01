@@ -3,12 +3,12 @@ const express = require("express");
 require("./db/connection.js");
 var cors = require("cors");
 const app = express();
- 
+
 app.use(cors());
 const port = process.env.PORT || 8000;
 //it is use to recognize incoming req object as for post and put,this is middlewere
 app.use(express.json());
-app.use("/profile_image",express.static("public/uploads/"))
+app.use("/profile_image", express.static("public/uploads/"))
 //registering  route
 const auth_route = require("./api/routes/user");
 const employee_route = require("./api/routes/employee");
@@ -17,6 +17,10 @@ const leavesadmin_route = require("./api/routes/leavesadmin");
 const department_route = require("./api/routes/department");
 const designations_route = require("./api/routes/designations");
 const timesheet_route = require("./api/routes/timesheet");
+const upload_route = require("./api/routes/fileUpload");
+const resetPassword_route = require("./api/routes/reset-password");
+app.use(resetPassword_route);
+app.use(upload_route);
 app.use(employee_route);
 app.use(auth_route);
 app.use(holiday_route);

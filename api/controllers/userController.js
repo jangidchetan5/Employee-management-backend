@@ -87,6 +87,7 @@ exports.user_signup = async function (req, res) {
 exports.user_login = async function (req, res) {
   const email = req.body.email;
   const password = req.body.password;
+  console.log(email)
   const user = await authCollectionObj.find({ email });
   try {
     if (user.length < 1) {
@@ -107,7 +108,7 @@ exports.user_login = async function (req, res) {
               expiresIn: "1h",
             }
           );
-          res.status(200).json({ message: "successful login", token: token });
+          res.status(200).json({ message: "successful login", token: token, id: user[0]._id });
         } else {
           res.status(401).json({ message: "auth failed" });
         }
